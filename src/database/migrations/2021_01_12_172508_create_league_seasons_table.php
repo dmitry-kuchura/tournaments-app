@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateLeagueSeasonsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,17 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('league_seasons', function (Blueprint $table) {
             $table->id();
 
             $table->string('name');
-            $table->string('last_name');
-            $table->string('psn_nickname');
+            $table->longText('content')->nullable();
+            $table->integer('league_id');
+            $table->text('settings')->nullable();
 
-            $table->text('rights');
+            $table->enum('status', ['started', 'active', 'ended']);
 
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->foreign('league_id')->references('id')->on('leagues');
 
             $table->timestamps();
         });
@@ -38,6 +36,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('league_seasons');
     }
 }
