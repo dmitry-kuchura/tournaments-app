@@ -8,24 +8,23 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property string $name
  * @property string $content
- * @property int $admin_id
- * @property string $platform
+ * @property int $league_id
+ * @property string $settings
  * @property string $status
- * @property string $game
  *
  * @property string $created_at
  * @property string $updated_at
  *
- * @property LeagueSeasons $seasons
+ * @property LeagueStages $stages
  */
-class Leagues extends Model
+class LeagueSeasons extends Model
 {
     /**
      * Database table name
      *
      * @var string
      */
-    protected $table = 'leagues';
+    protected $table = 'league_seasons';
 
     /**
      * Using timestamp
@@ -34,10 +33,10 @@ class Leagues extends Model
      */
     public $timestamps = true;
 
-    protected $fillable = ['name', 'content', 'admin_id', 'platform', 'status', 'game', 'created_at', 'updated_at'];
+    protected $fillable = ['name', 'content', 'league_id', 'settings', 'status', 'created_at', 'updated_at'];
 
-    public function seasons()
+    public function stages()
     {
-        return $this->hasMany('App\Models\LeagueSeasons', 'league_id', 'id')->with('stages');
+        return $this->hasMany('App\Models\LeagueStages', 'season_id', 'id');
     }
 }
