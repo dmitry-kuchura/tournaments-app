@@ -2,6 +2,8 @@
 
 namespace App\Repositories;
 
+use App\Models\Enum\LeaguesPlatform;
+use App\Models\Enum\LeaguesStatus;
 use App\Models\Leagues;
 
 class LeaguesRepository implements Repository
@@ -15,7 +17,14 @@ class LeaguesRepository implements Repository
 
     public function create(array $data)
     {
-        // TODO: Implement create() method.
+        $model = new Leagues();
+
+        $model->name = $data['name'];
+        $model->content = isset($data['content']) ?? $data['content'];
+        $model->admin_id = $data['admin_id'];
+        $model->platform = LeaguesPlatform::PS4;
+        $model->status = LeaguesStatus::CREATED;
+        $model->game = LeaguesStatus::CREATED;
     }
 
     public function store(int $id, array $data)

@@ -22,7 +22,7 @@ class CreateLeaguesTable extends Migration
 
             $table->enum('platform', ['ps4', 'xbox', 'ps5', 'pc'])->default('ps4');
             $table->enum('status', ['created', 'active', 'ended', 'archived'])->default('created');
-            $table->enum('game', ['other', 'f1-2020', 'f1-2021', 'dirt-20', 'gran-turismo-sport', 'assetto-corsa'])->default('f1-2020');
+            $table->enum('game', ['other', 'f1_2020', 'f1_2021', 'dirt_2', 'gran_turismo_sport', 'assetto_corsa'])->default('f1_2020');
 
             $table->foreign('admin_id')->references('id')->on('users');
 

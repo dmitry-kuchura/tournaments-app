@@ -132,14 +132,16 @@
     </div>
     <h2 class="writers-h2">Available Orders</h2>
     <div class="writers-top-table-panel">
+        @if ($result->seasons->count())
         <div class="clearfix">
-            <p class="writers-show-entries-text">Show Entries</p>
+            <p class="writers-show-entries-text">Show Seasons</p>
             <select class="writers-show-entries-select">
-                <option>10</option>
-                <option>20</option>
-                <option>30</option>
+                @foreach($result->seasons as $season)
+                    <option>{{ $season->name }}</option>
+                @endforeach
             </select>
         </div>
+        @endif
         <div class="writers-top-table-checkbox-wrapper">
             <input type="checkbox" id="writers-top-table-checkbox">
             <label class="label-writers-top-table-checkbox" for="writers-top-table-checkbox"><span></span></label>
@@ -155,9 +157,9 @@
         <table>
             <thead>
             <tr>
-                <th><p>Order Id</p></th>
-                <th><p>Price</p></th>
-                <th><p>Pages</p></th>
+                <th><p>Позиция</p></th>
+                <th><p>Пилот</p></th>
+                <th><p>Команда</p></th>
                 <th><p>Slides</p></th>
                 <th><p>Problems</p></th>
                 <th><p>Questions</p></th>
