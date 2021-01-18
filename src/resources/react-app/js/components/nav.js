@@ -10,7 +10,7 @@ class Navigation extends React.Component {
         super(props);
 
         this.state = {
-            authUser: null,
+            authUser: {id: null, name: null, email: null},
             dropdownMenu: false
         };
 
@@ -33,7 +33,7 @@ class Navigation extends React.Component {
     render() {
         return (
             <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-                <Link to="/admin" className="navbar-brand">Dronepilot | Admin</Link>
+                <Link to="/admin" className="navbar-brand">Race Weekend</Link>
                 <button className="btn btn-link btn-sm order-1 order-lg-0">
                     <i className="fas fa-bars"/>
                 </button>
@@ -47,20 +47,24 @@ class Navigation extends React.Component {
                     </div>
                 </form>
 
-                <ul className="navbar-nav ml-auto ml-md-0">
-                    <li className="nav-item dropdown">
-                        <Link className="nav-link dropdown-toggle" to="#" onClick={this.handleDropdown}>
-                            <i className="fas fa-user fa-fw"/>
-                        </Link>
+                {this.state.authUser.name != null ?
+                    <ul className="navbar-nav ml-auto ml-md-0">
+                        <li className="nav-item dropdown">
+                            <Link className="nav-link dropdown-toggle" to="#" onClick={this.handleDropdown}>
+                                <i className="fas fa-user fa-fw"/>
+                            </Link>
 
-                        <div className="dropdown-menu dropdown-menu-right" style={this.state.dropdownMenu ? closed : opened }>
-                            <Link className="dropdown-item" to="/admin/settings">Настройки</Link>
-                            <Link className="dropdown-item" to="/admin/logs">Логи</Link>
-                            <div className="dropdown-divider"/>
-                            <Link className="dropdown-item" to="/admin/logout">Выход</Link>
-                        </div>
-                    </li>
-                </ul>
+                            <div className="dropdown-menu dropdown-menu-right"
+                                 style={this.state.dropdownMenu ? closed : opened}>
+                                <Link className="dropdown-item" to="/admin/settings">Настройки</Link>
+                                <Link className="dropdown-item" to="/admin/logs">Логи</Link>
+                                <div className="dropdown-divider"/>
+                                <Link className="dropdown-item" to="/admin/logout">Выход</Link>
+                            </div>
+                        </li>
+                    </ul> : <Link className="nav-link" to="/login">
+                        <i className="fas fa-user-plus  fa-fw"/>
+                    </Link>}
             </nav>
         );
     }

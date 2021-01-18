@@ -63,7 +63,7 @@ class Login extends React.Component {
                                 <div className="col-lg-5">
                                     <div className="card shadow-lg border-0 rounded-lg mt-5">
                                         <div className="card-header">
-                                            <h3 className="text-center font-weight-light my-4">CodeBlog | Авторизация</h3>
+                                            <h3 className="text-center font-weight-light my-4">Race Weekend | Авторизация</h3>
                                         </div>
                                         <div className="card-body">
                                             <form onSubmit={this.handleSubmit} method="POST">
@@ -102,7 +102,7 @@ class Login extends React.Component {
                                                 </div>
                                                 <div
                                                     className="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                    <Link to="/admin/forgot-password" className="small">Забыли
+                                                    <Link to="/forgot-password" className="small">Забыли
                                                         пароль?</Link>
                                                     <button type="submit" className="btn btn-primary">Авторизация
                                                     </button>
@@ -111,7 +111,7 @@ class Login extends React.Component {
                                         </div>
                                         <div className="card-footer text-center">
                                             <div className="small">
-                                                <Link to="/admin/register">Регистрация</Link>
+                                                <Link to="/register">Регистрация</Link>
                                             </div>
                                         </div>
                                     </div>

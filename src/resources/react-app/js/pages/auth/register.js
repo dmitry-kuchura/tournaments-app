@@ -125,7 +125,7 @@ class Register extends React.Component {
                                         </div>
                                         <div className="card-footer text-center">
                                             <div className="small">
-                                                <Link to="/admin/login">Авторизация</Link>
+                                                <Link to="/login">Авторизация</Link>
                                             </div>
                                         </div>
                                     </div>

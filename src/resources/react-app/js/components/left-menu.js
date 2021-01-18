@@ -10,7 +10,7 @@ class LeftMenu extends React.Component {
         super(props);
 
         this.state = {
-            authUser: null,
+            authUser: {id: null, name: null, email: null},
             dropdownRecords: false
         };
 
@@ -56,7 +56,8 @@ class LeftMenu extends React.Component {
                                 </div>
                                 Статьи
                                 <div className="sb-sidenav-collapse-arrow">
-                                    {this.state.dropdownRecords ? <i className="fas fa-angle-right"/> : <i className="fas fa-angle-down"/>}
+                                    {this.state.dropdownRecords ? <i className="fas fa-angle-right"/> :
+                                        <i className="fas fa-angle-down"/>}
                                 </div>
                             </Link>
                             <div className="collapse" style={this.state.dropdownRecords ? closed : opened}>
@@ -81,10 +82,11 @@ class LeftMenu extends React.Component {
                         </div>
                     </div>
 
-                    {this.state.authUser ? <div className="sb-sidenav-footer">
-                        <div className="small">Авторизирован как:</div>
-                        {this.state.authUser.name}
-                    </div> : null}
+                    {this.state.authUser.name != null ?
+                        <div className="sb-sidenav-footer">
+                            <div className="small">Авторизирован как:</div>
+                            {this.state.authUser.name}
+                        </div> : null}
                 </nav>
             </div>
         )
