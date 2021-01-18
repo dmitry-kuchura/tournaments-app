@@ -33,7 +33,7 @@ class Navigation extends React.Component {
     render() {
         return (
             <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-                <Link to="/admin" className="navbar-brand">Race Weekend</Link>
+                <Link to="/" className="navbar-brand">Race Weekend</Link>
                 <button className="btn btn-link btn-sm order-1 order-lg-0">
                     <i className="fas fa-bars"/>
                 </button>

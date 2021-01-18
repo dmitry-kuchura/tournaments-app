@@ -11,14 +11,14 @@ class LeftMenu extends React.Component {
 
         this.state = {
             authUser: {id: null, name: null, email: null},
-            dropdownRecords: false
+            dropdownTournaments: false
         };
 
         this.handleDropdown = this.handleDropdown.bind(this);
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.authUser !== this.props.authUser) {
+        if (this.props.authUser !== prevProps.authUser) {
             this.setState({authUser: this.props.authUser})
         }
     }
@@ -27,8 +27,8 @@ class LeftMenu extends React.Component {
         event.preventDefault();
 
         switch (event.target.id) {
-            case "records":
-                this.setState({dropdownRecords: !this.state.dropdownRecords});
+            case 'tournaments':
+                this.setState({dropdownTournaments: !this.state.dropdownTournaments});
                 break;
         }
     }
@@ -41,35 +41,37 @@ class LeftMenu extends React.Component {
                         <div className="nav">
                             <div className="sb-sidenav-menu-heading">Основное</div>
 
-                            <Link className="nav-link" to="/admin">
+                            <Link className="nav-link" to="/">
                                 <div className="sb-nav-link-icon">
                                     <i className="fas fa-tachometer-alt"/>
                                 </div>
                                 Главная
                             </Link>
 
-                            <div className="sb-sidenav-menu-heading">Контент</div>
+                            <div className="sb-sidenav-menu-heading">Турниры</div>
 
-                            <Link to="#" className="nav-link collapsed" id="records" onClick={this.handleDropdown}>
+                            <Link to="#" className="nav-link collapsed" id="tournaments" onClick={this.handleDropdown}>
                                 <div className="sb-nav-link-icon">
                                     <i className="fas fa-book-open"/>
                                 </div>
-                                Статьи
+                                Турниры
                                 <div className="sb-sidenav-collapse-arrow">
-                                    {this.state.dropdownRecords ? <i className="fas fa-angle-right"/> :
+                                    {this.state.dropdownTournaments ? <i className="fas fa-angle-right"/> :
                                         <i className="fas fa-angle-down"/>}
                                 </div>
                             </Link>
-                            <div className="collapse" style={this.state.dropdownRecords ? closed : opened}>
+                            <div className="collapse" style={this.state.dropdownTournaments ? closed : opened}>
                                 <nav className="sb-sidenav-menu-nested nav">
-                                    <Link className="nav-link" to="/admin/records">Список статей</Link>
-                                    <Link className="nav-link" to="/admin/records/create">Добавить статью</Link>
+                                    <Link className="nav-link" to="/tournaments/all">Список турниров</Link>
+                                    <Link className="nav-link" to="/tournaments/active">Активные турниры</Link>
+                                    <Link className="nav-link" to="/tournaments/ended">Завершенные турниры</Link>
+                                    <Link className="nav-link" to="/tournaments/archived">Архивные турниры</Link>
                                 </nav>
                             </div>
 
                             <div className="sb-sidenav-menu-heading">Дополнительно</div>
 
-                            <Link to="/admin/charts" className="nav-link">
+                            <Link to="/charts" className="nav-link">
                                 <div className="sb-nav-link-icon">
                                     <i className="fas fa-chart-area"/>
                                 </div>

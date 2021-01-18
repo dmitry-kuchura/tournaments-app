@@ -1,7 +1,6 @@
 import React from 'react';
-import {Link} from "react-router-dom";
 
-class Dashboard extends React.Component {
+class TournamentsEnded extends React.Component {
     constructor(props) {
         super(props);
 
@@ -12,51 +11,8 @@ class Dashboard extends React.Component {
         return (
             <main>
                 <div className="container-fluid">
-                    <h1 className="mt-4">Панель администрирования</h1>
-                    <div className="row">
-                        <div className="col-xl-3 col-md-6">
-                            <div className="card bg-primary text-white mb-4">
-                                <div className="card-body">Все турниры</div>
-                                <div className="card-footer d-flex align-items-center justify-content-between">
-                                    <Link className="small text-white stretched-link"
-                                          to="/tournaments/all">Просмотр</Link>
-                                    <div className="small text-white"><i className="fas fa-angle-right"/></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-xl-3 col-md-6">
-                            <div className="card bg-success text-white mb-4">
-                                <div className="card-body">Текущие турниры</div>
-                                <div className="card-footer d-flex align-items-center justify-content-between">
-                                    <Link className="small text-white stretched-link"
-                                          to="/tournaments/active">Просмотр</Link>
-                                    <div className="small text-white"><i className="fas fa-angle-right"/></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-xl-3 col-md-6">
-                            <div className="card bg-danger text-white mb-4">
-                                <div className="card-body">Завершенные турниры</div>
-                                <div className="card-footer d-flex align-items-center justify-content-between">
-                                    <Link className="small text-white stretched-link"
-                                          to="/tournaments/ended">Просмотр</Link>
-                                    <div className="small text-white"><i className="fas fa-angle-right"/></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-xl-3 col-md-6">
-                            <div className="card bg-warning text-white mb-4">
-                                <div className="card-body">Архивные турниры</div>
-                                <div className="card-footer d-flex align-items-center justify-content-between">
-                                    <Link className="small text-white stretched-link"
-                                          to="/tournaments/archived">Просмотр</Link>
-                                    <div className="small text-white"><i className="fas fa-angle-right"/></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <h1 className="mt-4">Завершенные турниры</h1>
                     <div className="card mb-4">
-                        <div className="card-header"><i className="fas fa-table mr-1"></i>Последние статьи</div>
                         <div className="card-body">
                             <div className="table-responsive">
                                 <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
@@ -120,14 +76,6 @@ class Dashboard extends React.Component {
                                         <td>33</td>
                                         <td>2008/11/28</td>
                                         <td>$162,700</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Brielle Williamson</td>
-                                        <td>Integration Specialist</td>
-                                        <td>New York</td>
-                                        <td>61</td>
-                                        <td>2012/12/02</td>
-                                        <td>$372,000</td>
                                     </tr>
                                     <tr>
                                         <td>Herrod Chandler</td>
@@ -204,4 +152,4 @@ class Dashboard extends React.Component {
     }
 }
 
-export default Dashboard;
+export default TournamentsEnded;
