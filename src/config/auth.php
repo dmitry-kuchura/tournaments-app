@@ -4,6 +4,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Params for Basic Auth
+    |--------------------------------------------------------------------------
+    |
+    | This options controls the default authentication "username" and "password"
+    | for Basic Auth
+    |
+    */
+
+    'username' => env('AUTH_USERNAME', 'admin'),
+    'password' => env('AUTH_PASSWORD', 'secret'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Authentication Defaults
     |--------------------------------------------------------------------------
     |
